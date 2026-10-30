@@ -1,0 +1,36 @@
+# Keil build output
+**/Objects/
+**/Listings/
+**/Debug/
+**/Release/
+
+# Compiled files
+*.axf
+*.hex
+*.bin
+*.elf
+*.o
+*.d
+*.crf
+*.dep
+*.map
+*.lst
+
+# Keil user-specific settings
+*.uvguix.*
+*.uvoptx
+
+# Temporary files
+*.bak
+*.tmp
+*.log
+
+# Windows files
+Thumbs.db
+.DS_Store
+
+# Keil generated directories
+**/Objects/
+**/Listings/
+**/Debug/
+**/Release/
