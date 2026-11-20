@@ -106,17 +106,8 @@ extern  int32_t s32aSystem_Tuning_Variable_Parameters[26];
 #define   chg_overcurrent_protection         s32aSystem_Tuning_Variable_Parameters[4]
 #define   dischg_overcurrent_protection         s32aSystem_Tuning_Variable_Parameters[5]
 #define dischg_overcurrent_protection_Level2    dischg_overcurrent_protection+10
-	#define dischg_overcurrent_protection_Level3   dischg_overcurrent_protection+20
+#define dischg_overcurrent_protection_Level3   dischg_overcurrent_protection+20
 
-
-/**************************************************************************************************/
-	/*Function Name :Charging_Current_Prot()
-	Description:if discharging current is greater than 85A load MOSFET will be off and it will recover at less than 84A or 
-	chrging current greater than 1A.
-	Caller Function:Task Scheduler 
-	Author:Ashish Choudhary
-	Org:GIL*/
-	/**************************************************************************************************/
 
 extern uint16_t chg_current;
 uint32_t u32NoOvercurrentTimer = 0;      // Timer for 3-minute no-fault window (in ms)
@@ -214,14 +205,6 @@ void Charging_Current_Prot(void)
 	}	
 }	
 	
-/**************************************************************************************************/
-	/*Function Name :Dischrging_Current_Prot()
-	Description:if discharging current is greater than 85A load MOSFET will be off and it will recover at less than 84A or 
-	chrging current greater than 1A.
-	Caller Function:Task Scheduler
-	Author:Ashish Choudhary
-	Org:GIL*/
-	/**************************************************************************************************/
 
 uint32_t u32NoOver_DiscurrentTimer = 0;      // Timer for 3-minute no-fault window (in ms)
 #define NO_OVERDISCURR_RESET_TIME  180000   // 3 minutes = 180,000 ms
@@ -372,14 +355,6 @@ void Dischrging_Current_Prot(void)
 	}
 }	
 
-	/******************************************************************************************************/
-	/*Function Name :Tempertaure_Protection()
-	Description:Syetm will take protection when ambient temp greter than 65 deg and release at 40deg.
-	Caller Function:Task Scheduler
-	Author:Ashish Choudhary
-	Org:GIL*/
-	/******************************************************************************************************/
-
 void Tempertaure_Protection(void) //u16temp_cntr,u16temp_cntron
 	{
 	switch (TEMP_State)
@@ -430,15 +405,6 @@ void Tempertaure_Protection(void) //u16temp_cntr,u16temp_cntron
 		break;
 	}	
 	}	
-	
-		
-/**********************************************************************************************************/
-	/*Function Name :Tempertaure_Protection1()
-	Description:Syetm will take protection when MOSFET temp greter than 100 deg and release at 70deg.
-	Caller Function:Task Scheduler
-	Author:Raghvendra Thakur
-	Org:GIL*/
-/**********************************************************************************************************/
 
 uint8_t mos_temp_counter, mos_temp_revive_counter;
 #define mosfet_temp_high_cut    s32aSystem_Tuning_Variable_Parameters[23]
