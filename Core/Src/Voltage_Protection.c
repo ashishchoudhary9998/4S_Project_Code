@@ -136,13 +136,7 @@ void OperateLoadMosfet(void)
 	 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);  // DFETOFF pin set Low
 	}
 }
-/*****************************************************************************************************/
-/*Function Name :charging_curr()
-	Description:Function for off the charging MOSFET at 58.4V or cell voltage at 3.7V and will recover at 54V and cell vol.at 3.38V
-	Caller Function:Task Scheduler
-	Author:Raghvendra Thakur
-	Org:GIL*/
-/*****************************************************************************************************/
+
 void OverVolt_Protection(void)
 {
 	switch (Charging_State)
@@ -247,13 +241,6 @@ void OverVolt_Protection(void)
 	}	
 	/**************************************************************************************/
 	
-/************************************************************************************************************/
-	/*Function Name :LOAD_MOSFET()
-	Description:FunctionalState for off the load at 40V or cell voltage at 2.5V and will recover at 48V and cell vol.at 3V
-	Caller Function:Task Scheduler
-	Author:Raghvendra Thakur
-	Org:GIL*/
-/************************************************************************************************************/
 	
 /* One-shot marker in unused backup register 0; never stored in tuning flash. */
 #define UV_RESET_MARKER 0x55565231UL
